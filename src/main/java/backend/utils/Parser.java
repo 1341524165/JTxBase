@@ -1,0 +1,14 @@
+package backend.utils;
+
+import java.nio.ByteBuffer;
+
+public class Parser {
+    public static long parseLong(byte[] array) {
+        ByteBuffer buffer = ByteBuffer.wrap(array, 0, 8);
+        return buffer.getLong();
+    }
+
+    public static byte[] long2Byte(long value) {
+        return ByteBuffer.allocate(Long.SIZE / Byte.SIZE).putLong(value).array();
+    }
+}
